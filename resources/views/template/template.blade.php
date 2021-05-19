@@ -35,7 +35,7 @@
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
                     href="{{ route('login') }}">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-exclamation "></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>ERP</span></div>
+                    <div class="sidebar-brand-text mx-3"><span>Teste DOK</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
 

@@ -49,6 +49,49 @@ $(function() {
         sessionStorage.removeItem("status", { path: '/usuario' });
     }
 
+    if ($.cookie('status') != null) {
+        let status = $.cookie('status');
+
+        switch (status) {
+            case 'Salvo':
+                exibirAtualizadoSucesso();
+                setTimeout(function() {
+                    exibirAtualizadoSucesso();
+                    $('#div_status').hide();
+                }, 8000);
+                break;
+
+            case 'Excluido':
+                exibirExcluidoSucesso();
+                setTimeout(function() {
+                    exibirExcluidoSucesso();
+                    $('#div_status_delete').hide();
+                }, 8000);
+                break;
+
+            case 'Error':
+                exibirErrorSucesso();
+                setTimeout(function() {
+                    exibirErrorSucesso();
+                    $('#div_status_error').hide();
+                }, 8000);
+                break;
+
+            case 'Resetado':
+                exibirResetadoSucesso();
+                setTimeout(function() {
+                    exibirResetadoSucesso();
+                    $('#div_status_reset').hide();
+                }, 8000);
+                break;
+
+            default:
+                $.removeCookie("status", { path: '/usuario' });
+                break;
+        }
+        $.removeCookie("status", { path: '/usuario' });
+    }
+
 
 
 });

@@ -23,5 +23,9 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('logout');
 
     Route::get('/usuario', 'UsuarioController@create')->name('usuario');
+    Route::post('/usuario/cad', 'UsuarioController@store');
+    Route::post('/usuario/update', 'UsuarioController@update');
+    Route::post('/usuario/delete', 'UsuarioController@destroy');
+    Route::post('/usuario/resetpassword', 'UsuarioController@resetPassword');
 
 });

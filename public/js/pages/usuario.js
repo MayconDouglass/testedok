@@ -75,6 +75,30 @@ $('#modal-danger').on('show.bs.modal', function(event) {
     let button = $(event.relatedTarget) // Botão que acionou o modal
     let iddelete = button.data('id')
     $("#iddelete").val(iddelete);
+
+    $('#btnDelete').click(function(e) {
+
+        $.ajax({
+            url: '/api/usuarios/d/' + iddelete,
+            data: {
+                id: iddelete
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'post',
+            success: function(result) {
+                sessionStorage.setItem("status", "Excluido");
+                window.location.href = '/usuario';
+            },
+            error: function(result) {
+                sessionStorage.setItem("status", "Error");
+                window.location.href = '/usuario';
+
+            }
+        });
+    })
+
     let modal = $(this)
     modal.find('.b_text_modal_title_danger').text('Excluir Registro')
 })
@@ -83,6 +107,30 @@ $('#modal-password').on('show.bs.modal', function(event) {
     let button = $(event.relatedTarget) // Botão que acionou o modal
     let idUser = button.data('id')
     $("#idUser").val(idUser);
+
+    $('#btnReset').click(function(e) {
+
+        $.ajax({
+            url: '/api/usuarios/r/' + idUser,
+            data: {
+                id: idUser
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'post',
+            success: function(result) {
+                sessionStorage.setItem("status", "Resetado");
+                window.location.href = '/usuario';
+            },
+            error: function(result) {
+                sessionStorage.setItem("status", "Error");
+                window.location.href = '/usuario';
+
+            }
+        });
+    })
+
     let modal = $(this)
     modal.find('.b_text_modal_title_password').text('Resetar Password')
 })
@@ -154,9 +202,9 @@ $('#AlterarModal').on('show.bs.modal', function(event) {
 
 
     $('#btnAltUser').click(function(e) {
-        // console.log( $('.').val());
+
         $.ajax({
-            url: '/api/usuarios/',
+            url: '/api/usuarios/u/' + idUser,
             data: {
                 id: idUser,
                 nome: $('#nomeAlt').val(),
@@ -166,14 +214,14 @@ $('#AlterarModal').on('show.bs.modal', function(event) {
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            type: 'put',
+            type: 'post',
             success: function(result) {
                 sessionStorage.setItem("status", "Salvo");
-                // window.location.href = '/usuario';
+                window.location.href = '/usuario';
             },
             error: function(result) {
                 sessionStorage.setItem("status", "Error");
-                // window.location.href = '/usuario';
+                window.location.href = '/usuario';
 
             }
         });

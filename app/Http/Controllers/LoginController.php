@@ -18,7 +18,7 @@ class LoginController extends Controller
 
             $idUser = Auth::user()->id_usuario;
             $uNome = Auth::user()->nome;
-            $uNomeSimples = explode(' ', $uNome)[0]. ' ' . explode(' ', $uNome)[1];
+            $uNomeSimples = explode(' ', $uNome)[0];
             $aUser = Auth::user()->avatar;
 
             $countUsers = Usuario::all()->count();
@@ -55,7 +55,6 @@ class LoginController extends Controller
         $statusUser = User::where('email', $request->email)
             ->select('status')
             ->first();
-
 
         if (!$usuario) {
             return redirect()->action('LoginController@form')->with('status_error', 'Email inválido.');

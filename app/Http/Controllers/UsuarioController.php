@@ -13,14 +13,11 @@ class UsuarioController extends Controller
     public function create(Request $request)
     {
         if (Auth::user()) {
-
             $idUser = Auth::user()->id_usuario;
             $uNome = Auth::user()->nome;
-            $uNomeSimples = explode(' ', $uNome)[0] . ' ' . explode(' ', $uNome)[1];
+            $uNomeSimples = explode(' ', $uNome)[0];
             $aUser = Auth::user()->avatar;
-
             $usuarios = Usuario::all();
-
             $countUsers = Usuario::all()->count();
 
             if (file_exists($aUser)) {

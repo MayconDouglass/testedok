@@ -34,7 +34,7 @@
 
     <div class="alert alert-warning alert-dismissible d-none" id="div_status_error">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <i class="icon fa fa-times"></i> Error ao cadastrar! Email existente!
+        <i class="icon fa fa-times"></i> Error!!
     </div>
 
 
@@ -228,7 +228,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-secondary btn-sm fa fa-times" data-dismiss="modal">
                                     Cancelar</button>
-                                <button type="submit" class="btn btn-danger btn-sm fa fa-trash-o"> Confirmar</button>
+                                <button type="button" id="btnDelete" class="btn btn-danger btn-sm fa fa-trash-o"> Confirmar</button>
                             </div>
                         </form>
                     </div>
@@ -259,7 +259,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-secondary btn-sm fa fa-times" data-dismiss="modal">
                                     Cancelar</button>
-                                <button type="submit" class="btn btn-primario btn-sm fa fa-trash-o"> Confirmar</button>
+                                <button type="button" id="btnReset" class="btn btn-primario btn-sm fa fa-trash-o"> Confirmar</button>
                             </div>
                         </form>
                     </div>

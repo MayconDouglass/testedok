@@ -59,6 +59,21 @@ class UsuarioAPI extends Controller
         }
     }
 
+    public function resetPassword(Request $request, $id)
+    {
+        $usuario = Usuario::find($id);
+
+        $usuario->password = bcrypt('123');
+
+        $update = $usuario->save();
+
+        if ($update) {
+            return response()->json(['code' => '200', 'response' => 'Registro atualizado com sucesso!'], 200);
+        } else {
+            return response()->json(['code' => '406', 'response' => 'Erro ao atualizar!'], 406);
+        }
+    }
+
     public function destroy($id)
     {
         $usuario = Usuario::find($id);
